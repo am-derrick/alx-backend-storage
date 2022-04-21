@@ -1,7 +1,7 @@
 -- creates a stored procedure AddBonus that adds
 -- a new correction for a student
 
-DELIMETER $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS AddBonus;
 CREATE PROCEDURE AddBonus(
        in `user_id` INTEGER,
@@ -16,4 +16,4 @@ BEGIN
 	INSERT INTO corrections (user_id, project_id, score)
 	VALUES(user_id, (SELECT id FROM projects WHERE name=project_name), score);
 END $$
-DELIMETER ;$$
+DELIMITER ;$$
