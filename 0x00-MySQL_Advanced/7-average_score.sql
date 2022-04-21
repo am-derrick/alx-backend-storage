@@ -3,7 +3,7 @@
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
-CREATE PROCEDURE ComputeAverageScoreForUser(IN `user_id` INT)
+CREATE PROCEDURE ComputeAverageScoreForUser(IN `user_id` INTEGER)
 BEGIN
 	UPDATE users
 	SET average_score = (SELECT AVG(score)
