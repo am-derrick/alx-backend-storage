@@ -62,6 +62,11 @@ class Cache:
         """parametizes data to correct function, str"""
         return self.get(key, str)
 
-    def get_int(Self, data: str) -> int:
+    def get_int(self, data: str) -> int:
         """pararmetizes data to int"""
         return self.get(key, int)
+
+
+def replay(fn: Callable) -> Callable:
+    """displays history of calls of a particular function"""
+    return  fn.lrange(call_history, index, index)
