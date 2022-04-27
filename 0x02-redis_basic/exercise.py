@@ -22,3 +22,18 @@ class Cache:
         key = str(uuid4())
         self.redis.mset({key: data})
         return key
+
+    def get(self,
+            key: str,
+            fn: Optional[Callable] = None) -> UnionOfTypes:
+        """retrieves data stored at key in desired format"""
+        data = self._redis.get(key)
+        return fn(data) if fn else data
+
+    def get_str(self, data: str) -> str:
+        """parametizes data to correct function, str"""
+        return self.get(key, str)
+
+    def get_int(Self, data: str) -> int:
+        """pararmetizes data to int"""
+        return self.get(key, int)
