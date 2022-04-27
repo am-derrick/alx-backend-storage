@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """module for redis basic"""
-
 import redis
 import uuid from uuid4
 from typing import Union, Callable, Optional
@@ -65,8 +64,3 @@ class Cache:
     def get_int(self, data: str) -> int:
         """pararmetizes data to int"""
         return self.get(key, int)
-
-
-def replay(fn: Callable) -> Callable:
-    """displays history of calls of a particular function"""
-    return  fn.lrange(call_history, index, index)
